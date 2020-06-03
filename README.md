@@ -9,8 +9,4 @@ JULIA_VERSION = 1.4.0
 $ make build
 $ make run
 ```
-3. `Shift + Command + P` で `Julia Client: Connect External Proccess` を選択し，出てくる数字(`ATOM_PORT`)をコピー
-1. 以下を入力(`[ATOM_PORT]`と先程の`ATOM_PORT`を置き換える)
-```julia
-julia> using Atom; using Juno; Juno.connect("host.docker.internal", [ATOM_PORT])
-```
+3. `ATOM_PORT`を聞かれるので，`Shift + Command + P` で `Julia Client: Connect External Proccess` を選択し，出てくる数字を送信
