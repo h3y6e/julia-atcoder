@@ -1,6 +1,7 @@
 # julia-atcoder
 JULIA_VERSION = 1.4.0  
-インストール済みライブラリ: DataStructures, Primes
+インストール済みライブラリ: DataStructures, Primes  
+(参考: [AtCoder 2019/7 Language Update](https://docs.google.com/spreadsheets/d/1PmsqufkF3wjKN6g1L0STS80yP4a6u-VdGiEv5uOHe0M/edit#gid=0&range=57:57))
 
 ## 使い方
 1. Junoを開く
