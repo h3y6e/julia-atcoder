@@ -10,9 +10,6 @@ RUN julia -e 'using Pkg;\
               Pkg.add(["Atom", "Juno"]);\
               using Atom, Juno'
 
-# extra
-RUN julia -e 'using Pkg;\
-              Pkg.add("OhMyREPL");\
-              using OhMyREPL'
-
 COPY startup.jl /root/.julia/config/
+
+WORKDIR /contests

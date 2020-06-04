@@ -5,4 +5,4 @@ build:
 	docker build -t $(NAME):$(VERSION) .
 
 run:
-	docker run -it --network=host --rm $(NAME):$(VERSION) julia
+	docker run -v $$PWD/contests:/contests -it --network=host --rm $(NAME):$(VERSION) julia
