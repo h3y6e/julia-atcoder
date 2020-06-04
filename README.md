@@ -1,4 +1,4 @@
-# atcoder-julia
+# julia-atcoder
 JULIA_VERSION = 1.4.0  
 インストール済みライブラリ: DataStructures, Primes
 
