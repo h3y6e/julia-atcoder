@@ -1,0 +1,44 @@
+# Tips
+## 標準入出力
+### 1つの整数値
+```text
+N
+```
+```julia
+N = parse(Int, input())
+println(N)
+```
+
+### 複数の整数値
+```text
+N, M
+```
+```julia
+N, M = map(x -> parse(Int, x), input() |> split)
+println("$N $M")
+```
+
+### 配列 (横)
+```text
+A_1 ... A_N
+```
+```julia
+A = map(x -> parse(Int, x), input() |> split)
+println(A)
+```
+
+### 配列 (縦)
+```text
+N
+A_1
+ :
+A_N
+```
+```julia
+N = parse(Int, input())
+A = zeros(Int, N)
+for i = 1:N
+  A[i] = parse(Int, input())
+end
+println(A)
+```
