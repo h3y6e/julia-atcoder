@@ -14,7 +14,7 @@ $ make run
 1. `Contest: ` 後にコンテスト名を入力 (任意)
 
 
-`snippets.cson` に以下を追記しておくと `io` で呼べて便利．
+`snippets.cson` に以下を追記しておくと `atcoder` を入力するだけで呼べて便利．
 ```cson
 '.source.julia':
   'AtCoder':
