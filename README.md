@@ -10,8 +10,48 @@ JULIA_VERSION = 1.4.0
 $ make build
 $ make run
 ```
-3. `Shift + Command + P` で `Julia Client: Connect External Proccess` を選択し，出てくる数字を`ATOM_PORT: `後に入力
-1. `Contest: `後にコンテスト名を入力
+3. `Shift + Command + P` で `Julia Client: Connect External Proccess` を選択し，出てくる数字を `ATOM_PORT: ` 後に入力
+1. `Contest: ` 後にコンテスト名を入力 (任意)
 
-## 注意点
-Junoのcanvas programmingはターミナルではないため，`readline()`を実行することは出来ない．代わりに`input()`を用いることも可能だが，そのままでは提出できないので置換する(または`input() = readline()`を挿入する)必要がある．さらに複数行入力には対応していないため，基本的にはREPLで`include("file.jl")`を入力するのが良い．
+
+`snippets.cson` に以下を追記しておくと `io` で呼べて便利．
+```cson
+'.source.julia':
+  'AtCoder':
+    'prefix': 'atcoder'
+    'body': """
+function main(io = stdin)
+    readstr(; dlm = isspace) = split(readline(io), dlm)
+    readnum(T::Type{<:Number} = Int; dlm = isspace) =
+        parse.(T, split(readline(io), dlm))
+
+    ${1:A, = readnum()}
+
+    solve(${2:args...})
+end
+
+function solve(${2:args...})
+    ${3:# write your code here}
+end
+
+@static if @isdefined(Juno)
+    cd(
+        () -> begin
+            for (i, o) in zip(
+                readdir("in", join = true),
+                readdir("out", join = true),
+            )
+                println(i)
+                open(main, i)
+                println(o)
+                open(f -> println(readlines(f)), o)
+                println("---")
+            end
+        end,
+        replace(basename(@__FILE__), r"(.+).jl" => s"testcases/\\\\1"),
+    )
+else
+    main()
+end
+"""
+```
