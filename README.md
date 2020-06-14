@@ -12,6 +12,7 @@ $ make run
 ```
 3. `Shift + Command + P` で `Julia Client: Connect External Proccess` を選択し，出てくる数字を `ATOM_PORT: ` 後に入力
 1. `Contest: ` 後にコンテスト名を入力 (任意)
+  この操作によりコンテスト名のディレクトリが(無ければ)作成され，`testcases`フォルダにサンプルケースがダウンロードされる
 
 ## template.jl
 提出コードの雛形．
